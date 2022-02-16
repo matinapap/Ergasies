@@ -27,7 +27,7 @@ def sthles():
     return st
 
 def pyrgos(pg,ps,vag,vas):
-    if (vag==pg)|(vas==ps):
+    if (vag==pg) or (vas==ps):
         kerdise=True
     else:
         kerdise=False
