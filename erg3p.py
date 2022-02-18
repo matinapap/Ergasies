@@ -27,7 +27,7 @@ finaltext = finaltext.replace(',','')
 finaltext = finaltext.replace('*','')
 finaltext = finaltext.replace('-','')
 finaltext = finaltext.replace(';','')
-finaltext = finaltext.replace(',','')   #aferw ola ta stoixeia ektos apo to keno 
+finaltext = finaltext.replace(',','')   #αφαιρώ όλα τα στοιχεία εκτός από το κενό 
 finaltext = finaltext.replace(':','')
 finaltext = finaltext.replace('+',' ')
 finaltext = finaltext.replace('=','')
@@ -42,9 +42,9 @@ finaltext = finaltext.replace("'",' ')
 finaltext = finaltext.replace("@",' ')
 finaltext = finaltext.replace("#",' ')
 
-word=finaltext.split(" ")               #ta xwrizw me bash ta kena 
+word=finaltext.split(" ")               #τα χωρίζω με βάση τα κενά 
 
-word = list(filter(('').__ne__, word))  #afairw ola ta kena 
+word = list(filter(('').__ne__, word))  #αφαιρώ όλα τα κενά 
 
 """""""""
 gia na vgazei mono tis dipla dipla lexeis 
@@ -65,7 +65,7 @@ while i< (y-1):
 
 i=0
 y=len(word)
-while i < (y-1):                                    #otan vrei lexis pou to athisma tous na einai 20 tis afairei
+while i < (y-1):                                    #όταν βρει λέξεις που το αθροισμά τους να είναι 20 τις αφαιρεί
     flag=False
     j=i+1
     while j<y:
@@ -87,17 +87,17 @@ y=len(word)
 maxl=-1
 
 for i in range (y):
-    if maxl<len(word[i]):                 #blepw poia lexi exei ta perissotera grammata kai bazw thn timh ths se max 
+    if maxl<len(word[i]):                 #βλέπω ποια λέξη έχει τα περισσότερα γράμματα και βάζω την τιμή της σε max 
         maxl=len(word[i])
 
 
 for i in range (maxl):
-    pl.append(0)                #dhmiourgw lista me mhdenika plthoi oses einai kai oi lexeis 
+    pl.append(0)                #δημιουργώ λίστα με μηδενικά πλήθη όσες είναι και οι λέξεις 
 
 for i in range (y):
     for j in range (maxl):
         x=list(word[i])
-        if len(x)==j+1:            #gia i apo mhden mexri max na bgazei ta statistika twn lexewn 
+        if len(x)==j+1:            #για i από 0 μέχρι max να βγάζει τα στατιστικά των λέξεων 
             pl[j]+=1
 
 for i in range (maxl):
