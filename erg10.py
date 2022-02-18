@@ -17,13 +17,13 @@ char=list(filter((' ').__ne__, char))
 
 h=len(char)
 
-res = ''.join(format(ord(i), '07b') for i in char) #metatrepoume kathe xarakthra se binary mhkous 7 bit
+res = ''.join(format(ord(i), '07b') for i in char) #μετατρέπουμε κάθε χαρακτήρα σε binary μήκους 7 bit
 
 listres=list(res)
 
 
 
-y=len(res)//7   #posa 0 kai 1 twn 7bits uparxoun
+y=len(res)//7   #πόσα 0 και 1 των 7bits υπάρχουν
 
 bit7=[]
 for i in range (y-1):
@@ -39,38 +39,38 @@ for i in range (y-1):
 
 missed = ''.join(format(ord(i), '07b') for i in char[h-1])
 ta=missed[0]+missed[1]+missed[2]+missed[3]+missed[4]+missed[5]+missed[6]
-bit7.append(ta)                                                         #dhmiourgw tis 7 bit akolouthies
+bit7.append(ta)                                                         #δημιουργώ τις 7 bit ακολουθίες
 
 for i in range (y):
     m=list(bit7[i])
     m.pop(2)
     m.pop(2)
-    m.pop(2)                   #afhnw mono ta 2 mrpostina kai ta duo teleutaia stoixeia 
+    m.pop(2)                   #αφήνω μόνο τα 2 μπροστινά και τα δύο τελευταία στοιχεία 
     bit7[i]=m
 
 bit16=[]
 
 if len(bit7)%4==0:
     for i in range (0,len(bit7),4):
-        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #dhmiourgw toys 16bit arithmous
+        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #δημιουργώ τους 16bit αριθμούς
         bit16.append(b)
-elif (len(bit7)%4)==3:                              #pairnw periptwseis 
+elif (len(bit7)%4)==3:                              #παίρνω περιπτώσεις 
     for i in range (0,len(bit7)-3,4):
-        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #dhmiourgw toys 16bit arithmous
+        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #δημιουργώ τους 16bit αριθμούς
         bit16.append(b)
     b2=["0"*4]
     b=b2+bit7[(len(bit7)-3)]+bit7[(len(bit7)-2)]+bit7[(len(bit7)-1)]  
     bit16.append(b)
 elif len(bit7)%4==2:
     for i in range (0,len(bit7)-2,4):
-        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #dhmiourgw toys 16bit arithmous
+        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #δημιουργώ τους 16bit αριθμούς
         bit16.append(b)
     b2=["0"*8]
     b=b2+bit7[(len(bit7)-2)]+bit7[(len(bit7)-1)]   
     bit16.append(b)
 elif len(bit7)%4==1:
     for i in range (0,len(bit7)-1,4):
-        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]     #dhmiourgw toys 16bit arithmous
+        b=bit7[i]+bit7[i+1]+bit7[i+2]+bit7[i+3]    #δημιουργώ τους 16bit αριθμούς
         bit16.append(b)
     b2=["0"*12]
     b=b2+bit7[(len(bit7)-1)]   
@@ -82,7 +82,7 @@ for i in range (pl):
     if bit16[i][-1]=='0':
         pl1+=1         
 
-print("To pososto twn zugwn arithmwn einai: ")          #vriskw to plithos twn zugwn arithmwn 
+print("To pososto twn zugwn arithmwn einai: ")          #βρίσκω το πλήθος των ζυγών αριθμών 
 print(pl1/pl*100,"%")
 
 for i in range (pl):
@@ -90,25 +90,25 @@ for i in range (pl):
     bit16[i]=d
     
 for i in range (pl):   
-    bit16[i]=int(bit16[i],2)                        #metatroph binary se decimal
+    bit16[i]=int(bit16[i],2)                        #μετατροπή binary σε decimal
 
 pl2=0
 for i in range (pl):   
     if bit16[i]%3==0:
         pl2+=1
-print("To pososto twn arithmwn pou dierountai me to 3 einai: ")          #posoi ari8moi dierountai me to 3
+print("To pososto twn arithmwn pou dierountai me to 3 einai: ")          #πόσοι αριθμοί διαιρούνται με το 3
 print(pl2/pl*100,"%")
 
 pl3=0
 for i in range (pl):   
     if bit16[i]%5==0:
         pl3+=1
-print("To pososto twn arithmwn pou dierountai me to 5 einai: ")          #posoi ari8moi dierountai me to 5
+print("To pososto twn arithmwn pou dierountai me to 5 einai: ")          #πόσοι αριθμοί διαιρούνται με τo 5
 print(pl3/pl*100,"%")
 
 pl4=0
 for i in range (pl):   
     if bit16[i]%7==0:
         pl4+=1
-print("To pososto twn arithmwn pou dierountai me to 7 einai: ")          #posoi ari8moi dierountai me to 7
+print("To pososto twn arithmwn pou dierountai me to 7 einai: ")          #πόσοι αριθμοί διαιρούνται με τo 7
 print(pl4/pl*100,"%")
