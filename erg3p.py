@@ -47,7 +47,7 @@ word=finaltext.split(" ")               #τα χωρίζω με βάση τα κ
 word = list(filter(('').__ne__, word))  #αφαιρώ όλα τα κενά 
 
 """""""""
-gia na vgazei mono tis dipla dipla lexeis 
+για να βγάζει μόνο τις δίπλα δίπλα λέξεις
 i=0
 y=len(word)             
 while i< (y-1):
@@ -81,7 +81,6 @@ while i < (y-1):                                    #όταν βρει λέξε�
     y=len(word)
 
 pl=[]
-#arxikopoiw enan pinaka me polles theseis
 
 y=len(word)
 maxl=-1
